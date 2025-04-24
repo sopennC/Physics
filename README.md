@@ -1,7 +1,1 @@
-lol
-```python
-print("hello, physics")
-```
-
-
-ilya
+Как будем папки сортировать, по темам?
