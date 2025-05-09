@@ -175,3 +175,116 @@ $
 $
 a = frac(upright(d)v, upright(d)t)
 $
+
+#v(1.5cm)
+
+Пусть материальная точка движется по окружности радиуса $r$ со скоростью $v$, направленной по касательной. Тогда можно записать:
+$
+v = omega r = frac(2 pi, T) dot r
+$<v>
+
+Возьмем случай, когда радиусом окружности будет $v$, а по касательной будет направлено ускорение материальной точки. Тогда можно записать:
+$
+a = omega v = frac(2 pi, T) dot v
+$<a>
+
+Но вспомним уравнение @v и умножим и разделим уравнение @a на $r$:
+$
+a = underbrace(frac(2 pi r, T), v) dot frac(v, r) = frac(v^2, r)
+$
+
+Мы получили формулу *центростремительного (нормальным) ускорения*.
+
+Для задания ускорения в виде вектора используется единичный вектор нормали, направленный от материальной точки к центру окружности $O$:
+$
+accent(a, arrow) = frac(v^2, r) accent(n, arrow)
+$<center>
+
+#v(1.5cm)
+
+Для представления скорости в виде вектора воспользуемся единичным вектором касательной к окружности $accent(tau, arrow)$, т.е. $accent(v, arrow) = v accent(tau, arrow)$. Тогда
+$
+accent(a, arrow) = frac(upright(d), upright(d)t) (v accent(tau, arrow))
+$<tau>
+#align(center)[
+#let f1(x) = calc.sqrt(1 - calc.pow(x, 2))
+#set text(size: 10pt)
+#canvas({
+  import draw: *
+  import angle: *
+
+  plot.plot(size: (6, 6),
+  axis-style: none,
+  y-min: -1, y-max: 1,
+  {
+    let domain = (-1, +1)
+    plot.add(f1, domain: domain, style: (stroke: black))
+  })
+
+  line((3,6), (1.5, 6), mark: (end: ">", fill: black, scale: 0.5))
+  content((1.6,6.2), $accent(tau, arrow)$)
+  line((3,6), (0, 6), mark: (end: ">", fill: black, scale: 0.5))
+  content((0,6.2), $accent(v, arrow)$)
+})
+]
+
+При равномерном вращении значение скорости постоянно, а вот направление скорости (за это отвечает вектора $accent(tau, arrow)$) может изменяться. Запишем формулу ускорения:
+$
+accent(a, arrow) = v frac(upright(d)tau, upright(d)t)
+$ <start>
+
+Но вспомним уравнение @center и запишем следующее:
+$
+frac(upright(d)tau, upright(d)t) = frac(v,r) accent(n, arrow)
+$
+
+Но при равномерном вращении ускорение направлено как в центр окружности, так и по касательной.
+Запишем уравнение @tau по свойству дифференциала:
+$
+accent(a, arrow) = frac(upright(d)v, upright(d)t) accent(tau, arrow) + v frac(upright(d)tau, upright(d)t)
+$
+
+За второе слагаемое суммы отвечает центростремительное ускорение (уравнение @center):
+$
+accent(a, arrow) = frac(upright(d)v, upright(d)t) accent(tau, arrow) + frac(v^2, r) accent(n, arrow)
+$
+
+Первое слагаемое суммы называется *тангенциальным ускорением*:
+$
+accent(a_tau, arrow) = frac(upright(d)v, upright(d)t) accent(tau, arrow)
+$
+
+Итоговый вектор ускорения материальной точки складывается из векторов нормального и тангенциального ускорения:
+#align(center)[
+#let f1(x) = calc.sqrt(1 - calc.pow(x, 2))
+#set text(size: 12pt)
+#canvas({
+  import draw: *
+  import angle: *
+
+  plot.plot(size: (6, 6),
+  axis-style: none,
+  y-min: -1, y-max: 1,
+  {
+    let domain = (-1, +1)
+    plot.add(f1, domain: domain, style: (stroke: black))
+  })
+
+  line((3,6), (1.5, 6), mark: (end: ">", fill: black, scale: 0.5))
+  content((1.6,6.2), $accent(tau, arrow)$)
+
+  line((3,6), (0.75, 6), mark: (end: ">", fill: black, scale: 0.5))
+  content((0.75,6.25), $accent(a_tau, arrow)$)
+
+  line((3,6), (0, 6), mark: (end: ">", fill: black, scale: 0.5))
+  content((0,6.2), $accent(v, arrow)$)
+
+  line((3,6), (3,3), mark: (end: ">", fill: black, scale: 0.5))
+  content((3.4,3), $accent(a_n, arrow)$)
+
+  line((0.75, 6), (0.75, 3), stroke: (dash: "dashed"))
+  line((0.75, 3), (3, 3), stroke: (dash: "dashed"))
+  line((3,6), (0.75,3), mark: (end: ">", fill: black, scale: 0.5))
+  content((0.6, 2.8), $accent(a, arrow)$)
+})
+]
