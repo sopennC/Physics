@@ -48,8 +48,10 @@ $
 
 #underline(stroke: 1pt, offset: 2pt, [#smallcaps[ПРИМЕР]])
 
-Элементарная работа $A$, совершаемая силой $accent(F, arrow)$ при бесконечно малом перемещении $upright(d)accent(r, arrow)$, равна
+Элементарная работа $A$, совершаемая силой $accent(F, arrow)$ при бесконечно малом перемещении #footnote[Когда материальная точка, двигаясь по криволинейной траектории, проходит путь конечной длины, можно (мысленно) разбить весь этот путь на бесконечно малые участки, на каждом из которых сила $accent(F, arrow)$ может считаться постоянной.]
+$upright(d)accent(r, arrow)$, равна
 #footnote[В данном случае подразумевается скалярное произведение векторов.]
+
 $
 upright(d)A = accent(F, arrow) dot upright(d)accent(r, arrow) = F dot |upright(d)r| dot cos(Theta) 
 $
@@ -89,3 +91,4 @@ $
   angle("r.start", "r.end", "F.end", stroke: (dash: "dashed"))
   content(("r.mid", 10pt, "F.mid"), [$Theta$])
 })
+
